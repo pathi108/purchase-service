@@ -1,0 +1,136 @@
+swagger: '2.0'
+info:
+  description: |
+    Purchase-service api spec
+  version: 1.0.0
+  title: Purchase-service Api
+# host: petstore.swagger.io
+# basePath: /v2
+tags:
+  - name: purchase
+    description: purchase
+# schemes:
+# - http
+paths:
+  /purchases:
+    post:
+      tags:
+        - purchase
+      summary: create purchase
+      description: create purchase
+      operationId: createPurchase
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/BasePurchaseTransaction'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/BasePurchaseTransaction'
+        400:
+          description: Error
+          schema:
+            $ref: '#/definitions/ResponseDefault'
+        401:
+          description: Error
+          schema:
+            $ref: '#/definitions/ResponseDefault'
+        403:
+          description: Error
+          schema:
+            $ref: '#/definitions/ResponseDefault'
+        440:
+          description: Error
+          schema:
+            $ref: '#/definitions/ResponseDefault'
+  /purchases/{purchaseId}:
+    get:
+      tags:
+        - purchase
+      summary: get purchase
+      description: get purchase
+      operationId: getPurchase
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: purchaseId
+          type: integer
+          required: true
+        - in: query
+          name: currency
+          required: true
+          type: string
+
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PurchaseTransaction'
+        400:
+          description: Error
+          schema:
+            $ref: '#/definitions/ResponseDefault'
+        401:
+          description: Error
+          schema:
+            $ref: '#/definitions/ResponseDefault'
+        403:
+          description: Error
+          schema:
+            $ref: '#/definitions/ResponseDefault'
+        440:
+          description: Error
+          schema:
+            $ref: '#/definitions/ResponseDefault'
+
+definitions:
+  ResponseDefault:
+    type: object
+    properties:
+      responseCode:
+        type: integer
+      responseDesc:
+        type: string
+  BasePurchaseTransaction:
+    type: object
+    properties:
+      id:
+        type: integer
+      description:
+        type: string
+      transactionDate:
+        type: string
+        format: date
+      amount:
+        type: number
+
+  PurchaseTransaction:
+    allOf:
+      - $ref: '#/components/schemas/BasePurchaseTransaction'
+      - $ref: '#/components/schemas/PurchaseTransactionAdditionalProperties'
+
+  PurchaseTransactionAdditionalProperties:
+    type: object
+    properties:
+      exchangeRate:
+        type: number
+      convertedAmmount:
+        type: number
+
+
+
+
+basePath: /purchase-api/api
+schemes:
+  - https
+  - http
