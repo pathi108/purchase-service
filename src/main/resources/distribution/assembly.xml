@@ -13,6 +13,12 @@
             <fileMode>0755</fileMode>
         </fileSet>
         <fileSet>
+            <directory>src/main/resources/logs</directory>
+            <outputDirectory>/data</outputDirectory>
+            <filtered>true</filtered>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
             <directory>src/main/resources/bin</directory>
             <outputDirectory>/</outputDirectory>
             <filtered>true</filtered>
@@ -30,7 +36,7 @@
         </fileSet>
         <fileSet>
             <directory>target</directory>
-            <outputDirectory>lib/purchase-service.jar</outputDirectory>
+            <outputDirectory>lib</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
