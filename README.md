@@ -61,9 +61,7 @@ Where
 This API consumes a path parameter and a query parameter
 * Path parameter - unique Id of the Purchase Transaction
 * Query Parameter - country_currency_desc	of the currency you need to get converted to.
-   * You find the list of country code desc from <a href="[https://github.com/pathi108/purchase-service/blob/main/src/main/resources/purchase.yml](https://fiscaldata.treasury.gov/datasets/treasury-reporting-rates-exchange/treasury-reporting-rates-of-exchange
-)https://fiscaldata.treasury.gov/datasets/treasury-reporting-rates-exchange/treasury-reporting-rates-of-exchange
-" target="_blank">this</a> 
+   * You find the list of country code desc from <a href="https://fiscaldata.treasury.gov/datasets/treasury-reporting-rates-exchange/treasury-reporting-rates-of-exchange" target="_blank">this</a> 
 
 
 
